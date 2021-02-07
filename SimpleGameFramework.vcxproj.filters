@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\GameObject">
+      <UniqueIdentifier>{0ee14c59-61a1-461b-a436-8479d7f3be47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\WrappedSDL">
+      <UniqueIdentifier>{cc3b1356-7a40-437a-8133-412c63f7879e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Tool">
+      <UniqueIdentifier>{e7aebf59-473b-42fb-b550-74d01b87e5b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GameObject">
+      <UniqueIdentifier>{cbf522a1-1508-4ad4-b81c-d0816576f996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Tool">
+      <UniqueIdentifier>{63901532-5a94-4be4-a825-57fe2f3e9e66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\WrappedSDL">
+      <UniqueIdentifier>{e2c78fa9-c9dd-47ba-a179-90efbba97e37}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SimpleGameFramework\Game.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\GameObject.cpp">
+      <Filter>源文件\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Sprite.cpp">
+      <Filter>源文件\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Player.cpp">
+      <Filter>源文件\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Layer.cpp">
+      <Filter>源文件\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Vector.cpp">
+      <Filter>源文件\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\OBB.cpp">
+      <Filter>源文件\Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\InputHandler.cpp">
+      <Filter>源文件\WrappedSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Texture.cpp">
+      <Filter>源文件\WrappedSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\TextureManager.cpp">
+      <Filter>源文件\WrappedSDL</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Window.cpp">
+      <Filter>源文件\WrappedSDL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SimpleGameFramework\Game.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\GameObject.h">
+      <Filter>头文件\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Layer.h">
+      <Filter>头文件\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Sprite.h">
+      <Filter>头文件\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Player.h">
+      <Filter>头文件\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\InputHandler.h">
+      <Filter>头文件\WrappedSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\TextureManager.h">
+      <Filter>头文件\WrappedSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Texture.h">
+      <Filter>头文件\WrappedSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Window.h">
+      <Filter>头文件\WrappedSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Vector.h">
+      <Filter>头文件\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\OBB.h">
+      <Filter>头文件\Tool</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
