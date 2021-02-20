@@ -1,6 +1,12 @@
 #include "Vector.h"
 #include <cmath>
 
+void Vector::round()
+{
+	x = ::round(x);
+	y = ::round(y);
+}
+
 Vector Vector::operator+(const Vector& rhs) const
 {
 	return Vector(x + rhs.x, y + rhs.y);

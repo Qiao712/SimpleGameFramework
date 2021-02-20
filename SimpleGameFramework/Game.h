@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <string>
+#include "GameObject.h"
 using std::map;
 using std::string;
 class Window;
@@ -35,7 +36,7 @@ public:
 	* @param state_name 要赋予的状态名
 	* @Param state 状态，即游戏对象树的根节点
 	*/
-	void insertState(string state_name, GameObject* state); //加入新状态，加入新游戏对象树的根节点
+	void insertState(string state_name, GameObjectPtr state); //加入新状态，加入新游戏对象树的根节点
 protected:
 	static Game* _instance;
 
@@ -50,11 +51,8 @@ protected:
 	*/
 	void draw();
 
+	GameObjectPtr _root;					//! 游戏当前状态，即根一个游戏对象树的根节点
 	
-	Window* _win;
-
-	GameObject* _root;					//! 游戏当前状态，即根一个游戏对象树的根节点
-	
-	map<string, GameObject*> states;		//! 状态名到状态（即游戏对象树的根节点）的映射
+	map<string, GameObjectPtr> states;		//! 状态名到状态（即游戏对象树的根节点）的映射
 };
 

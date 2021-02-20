@@ -12,6 +12,11 @@ public:
 	void setY(double y_) { y = y_; }
 	void set(double x_, double y_) { x = x_; y = y_; }
 
+	/**
+	* @brief 使储存的量四舍五入为整数
+	*/
+	void round();
+
 	Vector operator+(const Vector& rhs) const;
 	Vector operator-(const Vector& rhs) const;
 	double operator*(const Vector& rhs) const;	//内积

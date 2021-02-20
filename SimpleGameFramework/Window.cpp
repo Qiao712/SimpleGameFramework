@@ -3,32 +3,12 @@
 #include "Texture.h"
 #include<iostream>
 using std::cout;
+
+Window* Window::_instance = nullptr;
+
 Window::Window(string winname, unsigned int height, unsigned int width) : _width(width), _height(height), _title(winname)
 {
-	init();
-}
-
-Window::~Window()
-{
-	SDL_DestroyRenderer(_renderer);
-	SDL_DestroyWindow(_window);
-	SDL_Quit();
-}
-
-
-void Window::clear()
-{
-	SDL_RenderClear(_renderer);
-}
-
-void Window::present()
-{
-	SDL_RenderPresent(_renderer);
-}
-
-void Window::init()
-{
-	//初始化
+	//SDL初始化
 	if (SDL_Init(SDL_INIT_VIDEO) != 0) {
 		std::cout << "SDL_Init Error: " << SDL_GetError() << std::endl;
 		exit(1);
@@ -49,4 +29,32 @@ void Window::init()
 		SDL_Quit();
 		exit(1);
 	}
+}
+
+Window::~Window()
+{
+	SDL_DestroyRenderer(_renderer);
+	SDL_DestroyWindow(_window);
+	SDL_Quit();
+}
+
+
+void Window::clear()
+{
+	SDL_RenderClear(_renderer);
+}
+
+void Window::present()
+{
+	SDL_RenderPresent(_renderer);
+}
+
+Window* Window::instance()
+{
+	return _instance;
+}
+
+void Window::init(string winname, unsigned int height, unsigned int width)
+{
+	_instance = new Window(winname, height, width);
 }

@@ -38,9 +38,14 @@ void InputHandler::update()
 			_y_cursor = event.motion.y;
 			break;
 		}
-		case SDL_MOUSEBUTTONUP:
+		case SDL_MOUSEBUTTONUP: {
+			_button_state[event.button.which] = event.button.state;
+			break;
+		}
 		case SDL_MOUSEBUTTONDOWN: {
 			_button_state[event.button.which] = event.button.state;
+
+			//按下次数
 			_button_clicks[event.button.which] = event.button.clicks;
 			break;
 		}
@@ -59,6 +64,10 @@ int InputHandler::ASCIIToScancode(char c)
 
 	if (islower(c)) {
 		return c + dis_lower;
+	}
+
+	if (c == ' ') {
+		return SDL_SCANCODE_SPACE;
 	}
 
 	return -1;

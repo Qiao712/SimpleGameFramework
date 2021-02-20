@@ -1,0 +1,1 @@
+body_player_animation 30      100

@@ -1,0 +1,10 @@
+grass  	block_grass
+soil 	block_soil
+stone	block_stone
+sand	block_sand
+wood	block_wood
+leaf	block_leaf
+magic	block_magic
+bush	block_bush
+flower	block_flower
+

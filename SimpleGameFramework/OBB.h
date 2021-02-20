@@ -19,12 +19,26 @@ public:
 	*/
 	bool collisionDetecting(const OBB& rhs) const;
 
-	//以下函数，实际未调用
+	/**
+	* @brief 粗略的碰撞检测，仅简单地判断距离
+	* @param 另一个包围盒
+	* @return 0: 未碰撞 1:碰撞
+	*/
+	bool roughlyCollisionDetecting(const OBB& rhs) const;
+
 	//获取4个顶点坐标
+	/**
+	* @brief 获取4个顶点的坐标，顶点名称与旋转无关
+	* @note 右侧和下侧的坐标比实际大 1
+	* @{
+	*/
 	Point getLeftTopPoint()			const;
 	Point getLeftBottomPoint()		const;
 	Point getRightTopPoint()			const;
 	Point getRightBottomPoint()		const;
+	/**
+	* @}
+	*/
 	//获取矩形两边的向量
 	Vector getEdge1()				const;
 	Vector getEdge2()				const;
@@ -47,5 +61,7 @@ public:
 	Vector acceleration = Vector();		//! 加速度
 	double angular_velocity = 0;			//! 角速度
 	double angular_acceleration = 0;		//! 角加速度
-};
 
+	bool _flip_vertical = 0;					//垂直平翻转情况
+	bool _flip_horizontal = 0 ;				//水平翻转情况
+};

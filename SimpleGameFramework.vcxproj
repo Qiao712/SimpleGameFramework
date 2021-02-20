@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SimpleGameFramework\Animation.cpp" />
+    <ClCompile Include="SimpleGameFramework\Camera.cpp" />
+    <ClCompile Include="SimpleGameFramework\CollisionManager.cpp" />
     <ClCompile Include="SimpleGameFramework\Game.cpp" />
     <ClCompile Include="SimpleGameFramework\GameObject.cpp" />
     <ClCompile Include="SimpleGameFramework\InputHandler.cpp" />
@@ -29,10 +32,17 @@
     <ClCompile Include="SimpleGameFramework\Sprite.cpp" />
     <ClCompile Include="SimpleGameFramework\Texture.cpp" />
     <ClCompile Include="SimpleGameFramework\TextureManager.cpp" />
+    <ClCompile Include="SimpleGameFramework\Tile.cpp" />
+    <ClCompile Include="SimpleGameFramework\TileFactory.cpp" />
+    <ClCompile Include="SimpleGameFramework\TileMap.cpp" />
+    <ClCompile Include="SimpleGameFramework\TileMapManager.cpp" />
     <ClCompile Include="SimpleGameFramework\Vector.cpp" />
     <ClCompile Include="SimpleGameFramework\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SimpleGameFramework\Animation.h" />
+    <ClInclude Include="SimpleGameFramework\Camera.h" />
+    <ClInclude Include="SimpleGameFramework\CollisionManager.h" />
     <ClInclude Include="SimpleGameFramework\Game.h" />
     <ClInclude Include="SimpleGameFramework\GameObject.h" />
     <ClInclude Include="SimpleGameFramework\InputHandler.h" />
@@ -42,6 +52,10 @@
     <ClInclude Include="SimpleGameFramework\Sprite.h" />
     <ClInclude Include="SimpleGameFramework\Texture.h" />
     <ClInclude Include="SimpleGameFramework\TextureManager.h" />
+    <ClInclude Include="SimpleGameFramework\Tile.h" />
+    <ClInclude Include="SimpleGameFramework\TileFactory.h" />
+    <ClInclude Include="SimpleGameFramework\TileMap.h" />
+    <ClInclude Include="SimpleGameFramework\TileMapManager.h" />
     <ClInclude Include="SimpleGameFramework\Vector.h" />
     <ClInclude Include="SimpleGameFramework\Window.h" />
   </ItemGroup>

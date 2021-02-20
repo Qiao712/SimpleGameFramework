@@ -1,5 +1,7 @@
 #include "Texture.h"
 #include "TextureManager.h"
+#include "Camera.h"
+#include<cmath>
 #include<iostream>
 using std::cout;
 
@@ -16,40 +18,56 @@ Texture::Texture(SDL_Texture* texture, SDL_Renderer* renderer) : _texture(textur
 	_width = width;
 }
 
-void Texture::draw(int x, int y, int h, int w)
+void Texture::draw(Point position, int w, int h, double angle, Vector center, int flip, CROOD crood)
 {
+	static Camera* camera = Camera::instance();
+	if (crood == WORLD_CROOD) position = camera->transform2win(position);	//如果给入的是，世界坐标系，则转到屏幕坐标系
+
 	static SDL_Rect dst;
-	dst.x = x;
-	dst.y = y;
+	dst.x = round(position.x);
+	dst.y = round(position.y);
+	dst.h = h;
+	dst.w = w;
+
+	SDL_Point sdl_center;
+	sdl_center.x = round(center.x);
+	sdl_center.y = round(center.y);
+
+	switch (flip) {
+	case FLIP_NONE:
+		SDL_RenderCopyEx(_renderer, _texture, nullptr, &dst, angle, &sdl_center, SDL_FLIP_NONE);
+		break;
+	case FLIP_HORIZONTAL:
+		SDL_RenderCopyEx(_renderer, _texture, nullptr, &dst, angle, &sdl_center, SDL_FLIP_HORIZONTAL);
+		break;
+	case FLIP_VERTICAL:
+		SDL_RenderCopyEx(_renderer, _texture, nullptr, &dst, angle, &sdl_center, SDL_FLIP_VERTICAL);
+		break;
+	case FLIP_BOTH:
+		SDL_RenderCopyEx(_renderer, _texture, nullptr, &dst, angle, &sdl_center, (SDL_RendererFlip)(SDL_FLIP_VERTICAL | SDL_FLIP_HORIZONTAL));
+	}
+}
+
+void Texture::draw(Point position, int w, int h, CROOD crood)
+{
+	static Camera* camera = Camera::instance();
+	if (crood == WORLD_CROOD) position = camera->transform2win(position);	//如果给入的是，世界坐标系，则转到屏幕坐标系
+
+	static SDL_Rect dst;
+	dst.x = round(position.x);
+	dst.y = round(position.y);
 	dst.h = h;
 	dst.w = w;
 
 	SDL_RenderCopy(_renderer, _texture, nullptr, &dst);
 }
 
-void Texture::draw(int x, int y)
+void Texture::draw(Point position, double angle, Vector center, int flip, CROOD crood)
 {
-	static SDL_Rect dst;
-	dst.x = x;
-	dst.y = y;
-	dst.h = _height;
-	dst.w = _width;
-
-	//cout << "Draw texture:" << _texture << " h: "<<_height<<" w:"<<_width<<" at"<<_renderer<<std::endl;
-	SDL_RenderCopy(_renderer, _texture, nullptr, &dst);
+	draw(position, _width, _height, angle, center, flip, crood);
 }
 
-void Texture::draw(int x, int y, double angle, Vector center)
+void Texture::draw(Point position, CROOD crood)
 {
-	static SDL_Rect dst;
-	dst.x = x;
-	dst.y = y;
-	dst.h = _height;
-	dst.w = _width;
-
-	SDL_Point sdl_center;
-	sdl_center.x = center.x;
-	sdl_center.y = center.y;
-
-	SDL_RenderCopyEx(_renderer, _texture, nullptr, &dst, angle,  &sdl_center, SDL_FLIP_NONE);
+	draw(position, _width, _height, crood);
 }

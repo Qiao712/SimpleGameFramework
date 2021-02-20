@@ -8,20 +8,24 @@ OBB::OBB(int x_, int y_, int w_, int h_, double angle_, Point center_):
 
 bool OBB::collisionDetecting(const OBB& rhs) const
 {   
+	//先粗略地检测
+
 	//OBB碰撞检测算法
 	double radian_a = degree2radian(angle);
 	double radian_b = degree2radian(rhs.angle);
 	double sin_a = sin(radian_a), cos_a = cos(radian_a);
 	double sin_b = sin(radian_b), cos_b = cos(radian_b);
-	//该OBB碰撞盒的两个轴
-	Vector axis1(-sin_a, cos_a);
-	Vector axis2(cos_a, sin_a);
 	//两碰撞盒 矩形中心 点连线向量
 	double x1 = cos_a * (w / 2.0 - center.x) - sin_a * (h / 2.0 - center.y) + pos.x;		//相当于getRectCenter
 	double y1 = cos_a * (h / 2.0 - center.y) + sin_a * (w / 2.0 - center.x) + pos.y;
 	double x2 = cos_b * (rhs.w / 2.0 - rhs.center.x) - sin_b * (rhs.h / 2.0 - rhs.center.y) + rhs.pos.x;
 	double y2 = cos_b * (rhs.h / 2.0 - rhs.center.y) + sin_b * (rhs.w / 2.0 - rhs.center.x) + rhs.pos.y;
 	Vector c2c(x1 - x2, y1 - y2);
+	//粗略检测,判断距离是否可能（圆形碰撞盒）
+	if (c2c.length() > (double)w + h + rhs.w + rhs.h) return false;
+	//该OBB碰撞盒的两个轴
+	Vector axis1(-sin_a, cos_a);
+	Vector axis2(cos_a, sin_a);
 	//代表rhs的碰撞盒的两条边的向量
 	Vector edge1(-(rhs.h * sin(radian_b)), rhs.h * cos(radian_b));
 	Vector edge2(rhs.w * cos(radian_b), rhs.w * sin(radian_b));
@@ -52,8 +56,8 @@ Point OBB::getLeftBottomPoint() const
 	double radian_a = degree2radian(angle);
 	double cos_a = cos(radian_a);
 	double sin_a = sin(radian_a);
-	return Point(cos_a * (0 - center.x) - sin_a * (h - center.y) + pos.x,
-		cos_a * (h - center.y) + sin_a * (0 - center.x) + pos.y);
+	return Point(cos_a * (0 - center.x) - sin_a * (h-1 - center.y) + pos.x,
+		cos_a * (h-1 - center.y) + sin_a * (0 - center.x) + pos.y);
 }
 
 Point OBB::getRightTopPoint() const
@@ -61,8 +65,8 @@ Point OBB::getRightTopPoint() const
 	double radian_a = degree2radian(angle);
 	double cos_a = cos(radian_a);
 	double sin_a = sin(radian_a);
-	return Point(cos_a * (w - center.x) - sin_a * (0 - center.y) + pos.x,
-		cos_a * (0 - center.y) + sin_a * (w - center.x) + pos.y);
+	return Point(cos_a * (w-1 - center.x) - sin_a * (0 - center.y) + pos.x,
+		cos_a * (0 - center.y) + sin_a * (w-1 - center.x) + pos.y);
 }
 
 Point OBB::getRightBottomPoint() const
@@ -70,8 +74,8 @@ Point OBB::getRightBottomPoint() const
 	double radian_a = degree2radian(angle);
 	double cos_a = cos(radian_a);
 	double sin_a = sin(radian_a);
-	return Point(cos_a * (w - center.x) - sin_a * (h - center.y) + pos.x,
-		cos_a * (h - center.y) + sin_a * (w - center.x) + pos.y);
+	return Point(cos_a * (w-1 - center.x) - sin_a * (h-1 - center.y) + pos.x,
+		cos_a * (h-1 - center.y) + sin_a * (w-1 - center.x) + pos.y);
 }
 
 Vector OBB::getEdge1() const

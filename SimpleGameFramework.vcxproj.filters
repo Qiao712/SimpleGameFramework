@@ -31,6 +31,12 @@
     <Filter Include="源文件\WrappedSDL">
       <UniqueIdentifier>{e2c78fa9-c9dd-47ba-a179-90efbba97e37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\GameObject\Base">
+      <UniqueIdentifier>{197094fc-2011-4366-84c8-05c73bf34493}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GameObject\Base">
+      <UniqueIdentifier>{2427763d-f5a7-476b-b0bd-6ea47221bd8f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimpleGameFramework\Game.cpp">
@@ -38,18 +44,6 @@
     </ClCompile>
     <ClCompile Include="SimpleGameFramework\main.cpp">
       <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleGameFramework\GameObject.cpp">
-      <Filter>源文件\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleGameFramework\Sprite.cpp">
-      <Filter>源文件\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleGameFramework\Player.cpp">
-      <Filter>源文件\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleGameFramework\Layer.cpp">
-      <Filter>源文件\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="SimpleGameFramework\Vector.cpp">
       <Filter>源文件\Tool</Filter>
@@ -69,19 +63,43 @@
     <ClCompile Include="SimpleGameFramework\Window.cpp">
       <Filter>源文件\WrappedSDL</Filter>
     </ClCompile>
+    <ClCompile Include="SimpleGameFramework\GameObject.cpp">
+      <Filter>源文件\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Layer.cpp">
+      <Filter>源文件\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Sprite.cpp">
+      <Filter>源文件\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\TileMap.cpp">
+      <Filter>源文件\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Player.cpp">
+      <Filter>源文件\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\CollisionManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Tile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\TileFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\TileMapManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleGameFramework\Animation.cpp">
+      <Filter>源文件\WrappedSDL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleGameFramework\Game.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleGameFramework\GameObject.h">
-      <Filter>头文件\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleGameFramework\Layer.h">
-      <Filter>头文件\GameObject</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleGameFramework\Sprite.h">
-      <Filter>头文件\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="SimpleGameFramework\Player.h">
       <Filter>头文件\GameObject</Filter>
@@ -103,6 +121,36 @@
     </ClInclude>
     <ClInclude Include="SimpleGameFramework\OBB.h">
       <Filter>头文件\Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\GameObject.h">
+      <Filter>头文件\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Layer.h">
+      <Filter>头文件\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Sprite.h">
+      <Filter>头文件\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\TileMap.h">
+      <Filter>头文件\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Tile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\TileFactory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\TileMapManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Animation.h">
+      <Filter>头文件\WrappedSDL</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleGameFramework\CollisionManager.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

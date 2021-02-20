@@ -1,10 +1,14 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <memory>
 #include "Texture.h"
 #include "Vector.h"
 using std::string;
 using std::vector;
+
+class GameObject;
+typedef std::shared_ptr<GameObject> GameObjectPtr;
 
 /**
 * @brief 游戏对象类，游戏内所有元素的类的基类\n
@@ -26,15 +30,15 @@ public:
 	virtual void draw();
 
 	/** 插入子游戏对象*/
-	void insert(GameObject* sub);
+	void insert(GameObjectPtr sub);
 	/** 移除子游戏对象*/
-	void remove(GameObject* sub);
+	void remove(GameObjectPtr sub);
 	/** 获得父游戏对象*/
-	GameObject* getParent() const { return _parent; }
+	GameObjectPtr getParent() const { return _parent; }
 	/** 获取用于遍历所有子节点的首迭代器， 为常量迭代器*/
-	vector<GameObject*>::const_iterator begin() const { return _sub.cbegin(); }
+	vector<GameObjectPtr>::const_iterator begin() const { return _sub.cbegin(); }
 	/** 获取用于遍历所有子节点的尾后迭代器， 为常量迭代器*/
-	vector<GameObject*>::const_iterator end() const { return _sub.cend(); }
+	vector<GameObjectPtr>::const_iterator end() const { return _sub.cend(); }
 
 	/**
 	* @name 用于获取相对于世界坐标系的属性\n
@@ -50,12 +54,13 @@ public:
 	virtual double getAbsoluteAngularVelocity() const { return 0; }
 	virtual Vector getAbsoluteAcceleration() const { return Vector(0, 0); }
 	virtual double getAbsoluteAngularAcceleration() const { return 0; }
+	virtual FLIP getAbsoluteFlipState() const { return FLIP_NONE; }
 	/** @} */
 protected:
 	/**调用该节点update，并向下递归地执行子节点地_update,以先序遍历的顺序更新树上的游戏对象*/
 	virtual void _update();
 	/**调用该节点draw，并向下递归地执行子节点地_draw，以先序遍历的顺序绘制树上的游戏对象*/
 	virtual void _draw();
-	GameObject* _parent = nullptr;	//父节点
-	vector<GameObject*> _sub;		//子游戏对象
+	GameObjectPtr _parent = nullptr;	//父节点
+	vector<GameObjectPtr> _sub;		//子游戏对象
 };
