@@ -14,7 +14,7 @@ typedef std::shared_ptr<GameObject> GameObjectPtr;
 * @brief 游戏对象类，游戏内所有元素的类的基类\n
 * 包括层、精灵等.\n
 * 包含一个子节点的列表，以形成树的结构.\n
-* 所有的游戏要素以树结构组织.
+* 所有的游戏要素以树结构组织(Composition模式).
 */
 class GameObject
 {

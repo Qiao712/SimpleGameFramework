@@ -42,6 +42,11 @@ public:
 	* @param x_tile  y_tile 图格坐标
 	*/
 	TilePtr  getTile(unsigned int x_tile, unsigned int y_tile);
+	/**
+	* @brief 获取某图格中的TileID
+	* @param x_tile  y_tile 图格坐标
+	*/
+	int		getTileID(unsigned int x_tile, unsigned int y_tile);
 
 	/**
 	* @brief 获取信息地图信息

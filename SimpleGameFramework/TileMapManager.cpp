@@ -1,6 +1,9 @@
 #include "TileMapManager.h"
 #include "TileFactory.h"
 #include "TileMap.h"
+#include <random>
+using std::random_device;
+using std::uniform_int_distribution;
 
 TileMapManager* TileMapManager::_instance = nullptr;
 
@@ -48,15 +51,39 @@ TilePtr TileMapManager::getTile(unsigned int x_tile, unsigned int y_tile)
 	
 }
 
+int TileMapManager::getTileID(unsigned int x_tile, unsigned int y_tile)
+{
+	if (x_tile >= 0 && x_tile < _tile_map->_w_map && y_tile >= 0 && y_tile < _tile_map->_h_map)
+		return _tile_map->getTileID(x_tile, y_tile);
+	else
+		return 0;
+}
+
 void TileMapManager::genMap()
 {
-	for (int i = 0; i < _tile_map->_w_map; i++) {
-			setTile("grass", i, 19);
-	}
+	static TileFactory* tile_factory = TileFactory::instance();
+	//随机数生成器
+	random_device rd;
+	uniform_int_distribution<int> uid(0,1);
+	uniform_int_distribution<int> uid2;
 
 	for (int i = 0; i < _tile_map->_w_map; i++) {
-		for (int j = 20; j < 30; j++) {
+		for (int j = 20 - uid(rd); j < 30; j++) {
 			setTile("soil", i, j);
+		}
+	}
+
+	//铺设草方块
+	for (int i = 0; i < _tile_map->_w_map; i++) {
+		for (int j = 0; j < 30; j++) {
+			if (getTileID(i, j) == 0 && getTileID(i, j + 1) == tile_factory->getTileID("soil")) {
+				setTile("grass", i, j);
+				//随机种植物
+				switch (uid2(rd) % 5) {
+				case 0: setTile("flower", i, j - 1); break;
+				case 1: setTile("bush", i, j - 1); break;
+				}
+			}
 		}
 	}
 

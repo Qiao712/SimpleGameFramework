@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -58,6 +58,11 @@
     <ClInclude Include="SimpleGameFramework\TileMapManager.h" />
     <ClInclude Include="SimpleGameFramework\Vector.h" />
     <ClInclude Include="SimpleGameFramework\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Introduce.md" />
+    <None Include="README.md" />
+    <None Include="UpdateLog.md" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

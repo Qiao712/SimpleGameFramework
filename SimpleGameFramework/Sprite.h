@@ -6,7 +6,12 @@
 //#define _SHOW_BOX_
 using std::string;
 /**
-* @brief 精灵类
+* @brief 精灵类\n
+* 具有速度、加速度、位置、大小的游戏对象的父类\n
+* 支持相对坐标系（相对于其父节点),对其速度、加速度的设置为相对于其父节点的量。
+* 支持旋转，可设置角速度与角加速度（相对的）。\n
+* 其位置、大小、速度、加速度、旋转角度、角速度、角加速度集中与OBB对象种。
+* 储存两个OBB对象，分别标识在世界坐标系种的量，和相对于其父节点的量。
 */
 class Sprite : public GameObject
 {
@@ -64,15 +69,6 @@ public:
 	/**
 	* @}
 	*/
-	
-	//绝对的坐标，速度, rhs设为nullptr则相对于其父对象，若无父对象则设置为绝对坐标
-	/*void setAbsolutePosition(int x, int y) { setAbsolutePosition(Point(x,y)); }
-	void setAbsolutePosition(const Point& pos);
-	void setAbsoluteVelocity(const Vector& velocity);
-	void setAbsoluteAcceleration(const Vector& acceleration);
-	void setAbsoluteAngle(double angle);
-	void setAbsoluteAngularVelocity(double velocity);
-	void setAbsoluteAngularAcceleration(double acceleration);*/
 
 	/**
 	* @brief 获取绝对的坐标、速度、角速度、加速度、角加速度， 即相对于世界坐标系

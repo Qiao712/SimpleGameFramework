@@ -14,7 +14,7 @@ InputHandler* InputHandler::instance()
 }
 
 void InputHandler::update()
-{	
+{
 	//¼ÇÂ¼Ê±¼ä
 	_time_last_updating = _time_curr_updating;
 	_time_curr_updating = getTime();

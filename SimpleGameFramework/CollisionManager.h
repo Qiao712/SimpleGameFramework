@@ -3,6 +3,7 @@ class Sprite;
 class Vector;
 /**
 * @brief 管理各游戏对象间的碰撞检测
+* 各对象向其询问是否碰撞。
 */
 class CollisionManager
 {

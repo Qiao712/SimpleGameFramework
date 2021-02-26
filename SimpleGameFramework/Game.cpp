@@ -43,21 +43,26 @@ Game* Game::instance()
 
 void Game::initGame()
 {
-	//游戏内容初始化
+	//创建层
 	auto root = make_shared<Layer>();
 	root->setBackground("background_forest");
 
+	//创建TileMap对象
 	auto tile_map = make_shared<TileMap>(100, 100, 50, 50);
 	root->insert(tile_map);
 
+	//创建玩家对象
 	auto player = make_shared<Player>();
 	root->insert(player);
 	
+	//绑定地图管理器
 	TileMapManager::instance()->bindTileMap(*tile_map);
 	TileMapManager::instance()->genMap();
 
+	//设置相机的焦点
 	Camera::instance()->setTarget(player);
 
+	//将创建的层作为根节点（状态），开始执行
 	insertState("play",root);
 	changeState("play");
 }

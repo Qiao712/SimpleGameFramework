@@ -37,6 +37,15 @@
     <Filter Include="源文件\GameObject\Base">
       <UniqueIdentifier>{2427763d-f5a7-476b-b0bd-6ea47221bd8f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\FSM">
+      <UniqueIdentifier>{b482fbb2-acb9-43c2-a643-29890a99b0ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\FSM">
+      <UniqueIdentifier>{24902662-f835-4723-99ca-8161390bb36b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Doc">
+      <UniqueIdentifier>{35f28022-85c7-4f42-91a6-e1c71c5a2e76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SimpleGameFramework\Game.cpp">
@@ -152,5 +161,16 @@
     <ClInclude Include="SimpleGameFramework\CollisionManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md">
+      <Filter>Doc</Filter>
+    </None>
+    <None Include="Introduce.md">
+      <Filter>Doc</Filter>
+    </None>
+    <None Include="UpdateLog.md">
+      <Filter>Doc</Filter>
+    </None>
   </ItemGroup>
 </Project>

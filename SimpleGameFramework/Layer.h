@@ -1,8 +1,9 @@
 #pragma once
 #include"GameObject.h"
 /**
-* @brief 层，各种游戏对象的容器
-* 默认跟随窗口大小
+* @brief 层，各种游戏对象的容器\n
+* 默认跟随窗口大小\n
+* 具有背景纹理属性\n
 */
 class Layer : public GameObject
 {
